@@ -6,7 +6,7 @@
 /*   By: jceia <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 21:09:56 by jceia             #+#    #+#             */
-/*   Updated: 2020/12/01 16:34:03 by jceia            ###   ########.fr       */
+/*   Updated: 2020/12/01 18:59:37 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int	ft_strlen(char *str)
 	int	index;
 
 	index = 0;
-	while(str[index])
+	while (str[index])
 		index++;
 	return (index);
 }
