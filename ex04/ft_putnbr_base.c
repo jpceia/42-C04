@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 22:33:22 by jceia             #+#    #+#             */
-/*   Updated: 2020/12/01 18:11:23 by jceia            ###   ########.fr       */
+/*   Updated: 2020/12/01 19:26:48 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,5 @@ void	ft_putnbr_base(int nb, char *base)
 		nb /= base_size;
 	}
 	while (index > 0)
-		write(1, &base[digits[--index]], 1);
+		write(1, &base[(int)digits[--index]], 1);
 }
