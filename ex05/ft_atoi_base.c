@@ -6,42 +6,42 @@
 /*   By: jceia <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 18:12:41 by jceia             #+#    #+#             */
-/*   Updated: 2020/12/01 18:50:12 by jceia            ###   ########.fr       */
+/*   Updated: 2020/12/01 18:58:54 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isspace(char c)
 {
-	return (c == ' ' ||
-		c == '\f'||
-		c == '\n'||
-		c == '\r'||
-		c == '\t'||
-		c == '\v');
+	return (c == ' '
+			|| c == '\f'
+			|| c == '\n'
+			|| c == '\r'
+			|| c == '\t'
+			|| c == '\v');
 }
 
 int	ft_chartoi_base(char c, char *base)
 {
 	int index;
-	
+
 	index = 0;
 	while (base[index])
 	{
-		if(c == base[index])
+		if (c == base[index])
 			return (index);
 		index++;
 	}
 	return (-1);
 }
 
-int ft_strlen(char* str)
+int	ft_strlen(char *str)
 {
 	int index;
 
 	index = 0;
-	while(str[index])
+	while (str[index])
 		index++;
-	return index;
+	return (index);
 }
 
 int	ft_atoi_base(char *str, char *base)
@@ -52,12 +52,12 @@ int	ft_atoi_base(char *str, char *base)
 	int nb;
 
 	base_size = ft_strlen(base);
-	while(ft_isspace(*str))
+	while (ft_isspace(*str))
 		str++;
 	sign = 1;
-	while(*str == '-' || *str == '+')
+	while (*str == '-' || *str == '+')
 	{
-		if(*str == '-')
+		if (*str == '-')
 			sign *= -1;
 		str++;
 	}
@@ -66,7 +66,7 @@ int	ft_atoi_base(char *str, char *base)
 	{
 		index = ft_chartoi_base(*str, base);
 		if (index < 0)
-			break;
+			break ;
 		nb = nb * base_size + index;
 		str++;
 	}
