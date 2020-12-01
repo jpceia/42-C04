@@ -6,18 +6,18 @@
 /*   By: jceia <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:47:33 by jceia             #+#    #+#             */
-/*   Updated: 2020/12/01 16:47:40 by jceia            ###   ########.fr       */
+/*   Updated: 2020/12/01 19:05:17 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isspace(char c)
 {
-	return (c == ' ' ||
-		c == '\f'||
-		c == '\n'||
-		c == '\r'||
-		c == '\t'||
-		c == '\v');
+	return (c == ' '
+			|| c == '\f'
+			|| c == '\n'
+			|| c == '\r'
+			|| c == '\t'
+			|| c == '\v');
 }
 
 int	ft_atoi(char *str)
@@ -25,17 +25,17 @@ int	ft_atoi(char *str)
 	int sign;
 	int nb;
 
-	while(ft_isspace(*str))
+	while (ft_isspace(*str))
 		str++;
 	sign = 1;
-	while(*str == '-' || *str == '+')
+	while (*str == '-' || *str == '+')
 	{
-		if(*str == '-')
+		if (*str == '-')
 			sign *= -1;
 		str++;
 	}
 	nb = 0;
-	while(*str >= '0' && *str <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
 		nb = nb * 10 + *str - '0';
 		str++;
