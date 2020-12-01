@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jceia <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/01 18:12:41 by jceia             #+#    #+#             */
+/*   Updated: 2020/12/01 18:50:12 by jceia            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 int	ft_isspace(char c)
 {
@@ -9,21 +20,33 @@ int	ft_isspace(char c)
 		c == '\v');
 }
 
-int	ft_chartoi(char c, char *base)
+int	ft_chartoi_base(char c, char *base)
 {
-	int i;
-	while (base[i] != 0)
+	int index;
+	
+	index = 0;
+	while (base[index])
 	{
-		if(c == base[i])
-			return (i);
-		i++;
+		if(c == base[index])
+			return (index);
+		index++;
 	}
 	return (-1);
 }
 
-int	ft_atoi(char *str, char *base)
+int ft_strlen(char* str)
 {
-	int i;
+	int index;
+
+	index = 0;
+	while(str[index])
+		index++;
+	return index;
+}
+
+int	ft_atoi_base(char *str, char *base)
+{
+	int index;
 	int base_size;
 	int sign;
 	int nb;
@@ -39,12 +62,12 @@ int	ft_atoi(char *str, char *base)
 		str++;
 	}
 	nb = 0;
-	while (1)
+	while (*str)
 	{
-		i = ft_chartoi(*str);
-		if (i < 0)
+		index = ft_chartoi_base(*str, base);
+		if (index < 0)
 			break;
-		nb = nb * base_size + i;
+		nb = nb * base_size + index;
 		str++;
 	}
 	return (sign * nb);
