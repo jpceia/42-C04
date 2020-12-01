@@ -6,11 +6,11 @@
 /*   By: jceia <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 18:12:41 by jceia             #+#    #+#             */
-/*   Updated: 2020/12/01 18:58:54 by jceia            ###   ########.fr       */
+/*   Updated: 2020/12/01 19:23:42 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(char c)
+int		ft_isspace(char c)
 {
 	return (c == ' '
 			|| c == '\f'
@@ -20,7 +20,7 @@ int	ft_isspace(char c)
 			|| c == '\v');
 }
 
-int	ft_chartoi_base(char c, char *base)
+int		ft_chartoi_base(char c, char *base)
 {
 	int index;
 
@@ -34,33 +34,48 @@ int	ft_chartoi_base(char c, char *base)
 	return (-1);
 }
 
-int	ft_strlen(char *str)
+int		ft_base_size(char *base)
 {
-	int index;
+	int		i;
+	int		j;
 
-	index = 0;
-	while (str[index])
-		index++;
-	return (index);
+	i = 0;
+	while (base[i])
+	{
+		if (base[i] == '+' || base[i] == '-')
+			return (0);
+		i++;
+	}
+	i = 0;
+	while (base[i])
+	{
+		j = i + 1;
+		while (base[j])
+		{
+			if (base[i] == base[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (i);
 }
 
-int	ft_atoi_base(char *str, char *base)
+int		ft_atoi_base(char *str, char *base)
 {
 	int index;
 	int base_size;
 	int sign;
 	int nb;
 
-	base_size = ft_strlen(base);
+	base_size = ft_base_size(base);
+	if (base_size < 2)
+		return (0);
 	while (ft_isspace(*str))
 		str++;
 	sign = 1;
 	while (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
-	}
+		sign = *(str++) == '-' ? -sign : sign;
 	nb = 0;
 	while (*str)
 	{
