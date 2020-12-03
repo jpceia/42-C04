@@ -6,7 +6,7 @@
 /*   By: jceia <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 18:12:41 by jceia             #+#    #+#             */
-/*   Updated: 2020/12/01 19:23:42 by jceia            ###   ########.fr       */
+/*   Updated: 2020/12/03 20:59:08 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		ft_base_size(char *base)
 	i = 0;
 	while (base[i])
 	{
-		if (base[i] == '+' || base[i] == '-')
+		if (base[i] == '+' || base[i] == '-' || ft_isspace(base[i]))
 			return (0);
 		i++;
 	}
